@@ -22,20 +22,25 @@ namespace WindowsFormsApplication1
         Button button3 = new Button();
         Button button4 = new Button();
         Button button5 = new Button();
+        Button button6 = new Button();
+        Button button7 = new Button();
 
+        //form loads up
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Hide();
+            answerBox.Hide();
             label1.Text = "Choose a Ticket";
-            pictureBox1.Hide();
-            pictureBox3.Hide();
-            Ticket1.Hide();
+            ticket3.Hide();
+            ticket2.Hide();
+            ticket1.Hide();
         }
+        bool restarted = false;
+        //click screen to start
         private void Form1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Show();
-            pictureBox3.Show();
-            Ticket1.Show();
+            ticket3.Show();
+            ticket2.Show();
+            ticket1.Show();
             label1.Text = "";
         }
 
@@ -45,12 +50,12 @@ namespace WindowsFormsApplication1
 
             label1.Location = new Point(70, 37);
             label1.Text = "";
-            pictureBox3.Hide();
-            pictureBox1.Hide();
+            ticket2.Hide();
+            ticket3.Hide();
             Thread.Sleep(400);
 
-            Ticket1.Size = new Size(272, 335);
-            Ticket1.Location = new Point(102, 117);
+            ticket1.Size = new Size(272, 335);
+            ticket1.Location = new Point(102, 117);
             Refresh();  
 
             //Text Type
@@ -86,6 +91,7 @@ namespace WindowsFormsApplication1
             tv.Location = new Point(75, 90);
             tv.BackgroundImage = new Bitmap(@"C:\Users\student\Desktop\Dylon\Lottery Decisions\Lottery Decisions\Resources\tv.png");
             tv.BackgroundImageLayout = ImageLayout.Zoom;
+            tv.Show();
 
             label1.Text = "";
 
@@ -94,7 +100,7 @@ namespace WindowsFormsApplication1
 
 
             label1.Text = "The winning lottery ticket is...";
-            Ticket1.Hide();
+            ticket1.Hide();
             Refresh();
             Thread.Sleep(500);
             label2.Location = new Point(133, 317);
@@ -125,11 +131,11 @@ namespace WindowsFormsApplication1
             label2.Location = new Point(133, 65);
             Refresh();
             Thread.Sleep(50);
-            Ticket1.Show();
+            ticket1.Show();
 
             Refresh();
             Thread.Sleep(3000);
-            Ticket1.Hide();
+            ticket1.Hide();
             label2.Text = "";
             label1.Text = "YOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
 
@@ -174,13 +180,19 @@ namespace WindowsFormsApplication1
             label1.Text += "\n\n 3. You call the number on the screen to find out \n how to cash in your winning ticket.";
             
                 
-            textBox1.Show();
-
-            button1.Location = new Point(195, 400);
-            button1.BackColor = Color.Gainsboro;
-            button1.Size = new Size(75, 23);
-            button1.Click += new EventHandler(button1_Click);
-            this.Controls.Add(button1);
+            answerBox.Show();
+            if (restarted == false)
+            {
+                button1.Location = new Point(195, 400);
+                button1.BackColor = Color.Gainsboro;
+                button1.Size = new Size(75, 23);
+                button1.Click += new EventHandler(button1_Click);
+                this.Controls.Add(button1);
+            }
+            else
+            {
+                button1.Show();
+            }
 
             Refresh();
             Thread.Sleep(1000);
@@ -192,12 +204,12 @@ namespace WindowsFormsApplication1
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             label1.Text = "";
-            Ticket1.Hide();
-            pictureBox1.Hide();
+            ticket1.Hide();
+            ticket3.Hide();
             Thread.Sleep(400);
 
-            pictureBox3.Size = new Size(272, 335);
-            pictureBox3.Location = new Point(102, 117);
+            ticket2.Size = new Size(272, 335);
+            ticket2.Location = new Point(102, 117);
             Refresh();
 
             label1.Location = new Point(70, 37);
@@ -243,7 +255,7 @@ namespace WindowsFormsApplication1
 
 
             label1.Text = "The winning lottery ticket is...";
-            pictureBox3.Hide();
+            ticket2.Hide();
             Refresh();
             Thread.Sleep(500);
             label2.Location = new Point(133, 317);
@@ -274,11 +286,11 @@ namespace WindowsFormsApplication1
             label2.Location = new Point(133, 65);
             Refresh();
             Thread.Sleep(50);
-            pictureBox3.Show();
+            ticket2.Show();
 
             Refresh();
             Thread.Sleep(3000);
-            pictureBox3.Hide();
+            ticket2.Hide();
             label2.Text = "";
             label1.Text = "YOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
 
@@ -319,7 +331,7 @@ namespace WindowsFormsApplication1
             label1.Text += "\n\n 3. You call the number on the screen to find out \n how to cash in your winning ticket.";
 
 
-            textBox1.Show();
+            answerBox.Show();
 
             button1.Location = new Point(195, 400);
             button1.BackColor = Color.Gainsboro;
@@ -335,12 +347,12 @@ namespace WindowsFormsApplication1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             label1.Text = "";
-            pictureBox3.Hide();
-            Ticket1.Hide();
+            ticket2.Hide();
+            ticket1.Hide();
             Thread.Sleep(400);
 
-            pictureBox1.Size = new Size(272, 335);
-            pictureBox1.Location = new Point(102, 117);
+            ticket3.Size = new Size(272, 335);
+            ticket3.Location = new Point(102, 117);
             Refresh();
 
             label1.Location = new Point(70, 37);
@@ -388,19 +400,19 @@ namespace WindowsFormsApplication1
             label1.Text = "YOU LOSE!";
         }
 
-        //button
+        
 
-
+        //first decision button
         private void button1_Click(object sender, EventArgs e)
         {
             this.Controls.Remove(button1);
             button1.Dispose();
-            textBox1.Hide();
+            answerBox.Hide();
             label1.Location = new Point(38, 37);
 
             try
             {
-                answer = Convert.ToInt16(textBox1.Text);
+                answer = Convert.ToInt16(answerBox.Text);
 
             }
             catch
@@ -424,6 +436,24 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n\n\n\n You are dead";
+
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
             }
             else if (answer == 2)
             {
@@ -443,8 +473,8 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n \n            or           ";
                 label1.Text += "\n \n 2. stay in traffic and wait it out?";
 
-                textBox1.Clear();
-                textBox1.Show();
+                answerBox.Clear();
+                answerBox.Show();
 
                 button2.Location = new Point(195, 400);
                 button2.BackColor = Color.Gainsboro;
@@ -467,8 +497,8 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n \n 1. Ride your bike?";
                 label1.Text += " \n or ";
                 label1.Text += "\n 2. Walk?";
-                textBox1.Clear();
-                textBox1.Show();
+                answerBox.Clear();
+                answerBox.Show();
                 
 
                 button3.Location = new Point(195, 400);
@@ -480,16 +510,17 @@ namespace WindowsFormsApplication1
             }
         }
 
+        //second decision button
         private void button2_Click(object sender, EventArgs e)
         {
             this.Controls.Remove(button2);
             button2.Dispose();
-            textBox1.Hide();
+            answerBox.Hide();
             label1.Location = new Point(38, 37);
 
             try
             {
-                answer = Convert.ToInt16(textBox1.Text);
+                answer = Convert.ToInt16(answerBox.Text);
 
             }
             catch
@@ -531,16 +562,17 @@ namespace WindowsFormsApplication1
             }
         
         }
+        //third decision button
         private void button3_Click(object sender, EventArgs e)
         {
             this.Controls.Remove(button3);
             button3.Dispose();
-            textBox1.Hide();
+            answerBox.Hide();
             label1.Location = new Point(38, 37);
 
             try
             {
-                answer = Convert.ToInt16(textBox1.Text);
+                answer = Convert.ToInt16(answerBox.Text);
 
             }
             catch
@@ -561,8 +593,8 @@ namespace WindowsFormsApplication1
                 button4.Size = new Size(75, 23);
                 button4.Click += new EventHandler(button4_Click);
                 this.Controls.Add(button4);
-                textBox1.Clear();
-                textBox1.Show();
+                answerBox.Clear();
+                answerBox.Show();
             }
             if (answer == 2)
             {
@@ -579,8 +611,8 @@ namespace WindowsFormsApplication1
                 button5.Size = new Size(75, 23);
                 button5.Click += new EventHandler(button5_Click);
                 this.Controls.Add(button5);
-                textBox1.Clear();
-                textBox1.Show();
+                answerBox.Clear();
+                answerBox.Show();
             }
         }
 
@@ -588,11 +620,11 @@ namespace WindowsFormsApplication1
         {
             this.Controls.Remove(button4);
             button4.Dispose();
-            textBox1.Hide();
+            answerBox.Hide();
 
             try
             {
-                answer = Convert.ToInt16(textBox1.Text);
+                answer = Convert.ToInt16(answerBox.Text);
 
             }
             catch
@@ -625,11 +657,11 @@ namespace WindowsFormsApplication1
         {
             this.Controls.Remove(button5);
             button5.Dispose();
-            textBox1.Hide();
+            answerBox.Hide();
 
             try
             {
-                answer = Convert.ToInt16(textBox1.Text);
+                answer = Convert.ToInt16(answerBox.Text);
 
             }
             catch
@@ -677,36 +709,64 @@ namespace WindowsFormsApplication1
             }
 
         }
+     
+        
+        //Play Again button
+        private void button6_Click(object sender, EventArgs e)
+        {
 
+            this.Controls.Remove(button6);
+            button6.Dispose();
+            this.Controls.Remove(button7);
+            button7.Dispose();
+
+            answerBox.Hide();
+            label1.Location = new Point(163, 138);
+            label1.Text = "Choose a Ticket";
+            ticket3.Location = new Point(143, 234);
+            ticket2.Location = new Point(244, 10);
+            ticket1.Location = new Point(61, 12);
+            ticket1.Size = new Size(177, 218); 
+            ticket3.Hide();
+            ticket2.Hide();
+            ticket1.Hide();
+            restarted = true;
+        }
+        
+        //Close Form button
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void pictureBox3_MouseHover(object sender, EventArgs e)
         {
-            pictureBox3.BackColor = Color.Black;
+            ticket2.BackColor = Color.Black;
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox3.BackColor = Color.Transparent;
+            ticket2.BackColor = Color.Transparent;
         }
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            pictureBox1.BackColor = Color.Black;
+            ticket3.BackColor = Color.Black;
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.BackColor = Color.Transparent;
+            ticket3.BackColor = Color.Transparent;
         }
 
         private void Ticket1_MouseHover(object sender, EventArgs e)
         {
 
-            Ticket1.BackColor = Color.Black;
+            ticket1.BackColor = Color.Black;
         } 
             
         private void Ticket1_MouseLeave(object sender, EventArgs e)
         {
-            Ticket1.BackColor = Color.Transparent;
+            ticket1.BackColor = Color.Transparent;
 
         }
 
