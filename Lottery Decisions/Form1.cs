@@ -24,6 +24,7 @@ namespace WindowsFormsApplication1
         Button button5 = new Button();
         Button button6 = new Button();
         Button button7 = new Button();
+        Button button8 = new Button();
 
         //form loads up
         private void Form1_Load(object sender, EventArgs e)
@@ -187,10 +188,12 @@ namespace WindowsFormsApplication1
                 button1.BackColor = Color.Gainsboro;
                 button1.Size = new Size(75, 23);
                 button1.Click += new EventHandler(button1_Click);
+                button1.Text = "ENTER";
                 this.Controls.Add(button1);
             }
             else
             {
+                answerBox.Clear();
                 button1.Show();
             }
 
@@ -332,12 +335,20 @@ namespace WindowsFormsApplication1
 
 
             answerBox.Show();
-
-            button1.Location = new Point(195, 400);
-            button1.BackColor = Color.Gainsboro;
-            button1.Size = new Size(75, 23);
-            button1.Click += new EventHandler(button1_Click);
-            this.Controls.Add(button1);
+            if (restarted == false)
+            {
+                button1.Location = new Point(195, 400);
+                button1.BackColor = Color.Gainsboro;
+                button1.Size = new Size(75, 23);
+                button1.Click += new EventHandler(button1_Click);
+                button1.Text = "ENTER";
+                this.Controls.Add(button1);
+            }
+            else
+            {
+                answerBox.Clear();
+                button1.Show();
+            }
 
             Refresh();
             Thread.Sleep(1000);
@@ -396,8 +407,33 @@ namespace WindowsFormsApplication1
             label1.Text += "\n \n 11   13   24   24  32   40   41";
             Refresh();
             Thread.Sleep(3200);
+            ticket3.Hide();
+            Refresh();
+            Thread.Sleep(2000);
 
-            label1.Text = "YOU LOSE!";
+            label1.Text = "\n\n\n\n        YOU LOSE!        ";
+
+            Refresh();
+            Thread.Sleep(1000);
+
+            //play again or restart
+            Refresh();
+            Thread.Sleep(2000);
+            label1.Text += "\n\n\n\n\n\n               Play Again?              ";
+            //Play Again button
+            button6.Location = new Point(155, 400);
+            button6.BackColor = Color.Gainsboro;
+            button6.Size = new Size(75, 23);
+            button6.Text = "YES";
+            button6.Click += new EventHandler(button6_Click);
+            this.Controls.Add(button6);
+            //Close form 
+            button7.Location = new Point(255, 400);
+            button7.BackColor = Color.Gainsboro;
+            button7.Size = new Size(75, 23);
+            button7.Text = "NO";
+            button7.Click += new EventHandler(button7_Click);
+            this.Controls.Add(button7);
         }
 
         
@@ -405,8 +441,8 @@ namespace WindowsFormsApplication1
         //first decision button
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(button1);
-            button1.Dispose();
+            //this.Controls.Remove(button1);
+            button1.Hide();
             answerBox.Hide();
             label1.Location = new Point(38, 37);
 
@@ -436,7 +472,7 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n\n\n\n You are dead";
-
+                //play again or restart
                 Refresh();
                 Thread.Sleep(2000);
                 label1.Text += "\n\n\n\n\n\n               Play Again?              ";
@@ -476,11 +512,21 @@ namespace WindowsFormsApplication1
                 answerBox.Clear();
                 answerBox.Show();
 
-                button2.Location = new Point(195, 400);
-                button2.BackColor = Color.Gainsboro;
-                button2.Size = new Size(75, 23);
-                button2.Click += new EventHandler(button2_Click);
-                this.Controls.Add(button2);
+                if (restarted == false)
+                {
+                    button2.Location = new Point(195, 400);
+                    button2.BackColor = Color.Gainsboro;
+                    button2.Size = new Size(75, 23);
+                    button2.Click += new EventHandler(button2_Click);
+                    button2.Text = "ENTER";
+                    this.Controls.Add(button2);
+                }
+                else
+                {
+                    answerBox.Clear();
+                    button2.Show();
+                }
+                
             }
             else if (answer == 3)
             {
@@ -505,6 +551,7 @@ namespace WindowsFormsApplication1
                 button3.BackColor = Color.Gainsboro;
                 button3.Size = new Size(75, 23);
                 button3.Click += new EventHandler(button3_Click);
+                button3.Text = "ENTER";
                 this.Controls.Add(button3);
 
             }
@@ -513,8 +560,7 @@ namespace WindowsFormsApplication1
         //second decision button
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(button2);
-            button2.Dispose();
+            button2.Hide();
             answerBox.Hide();
             label1.Location = new Point(38, 37);
 
@@ -536,11 +582,30 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text = "\n\n As you are turning around the corner you get \n violently hit by a car.";
+                Refresh();
                 Thread.Sleep(4000);
-                label1.Text += "\n\n You go into a comma";
+                label1.Text += "\n\n You go into a comma.";
                 Refresh();
                 Thread.Sleep(1000);
-                label1.Text += "\n\n No one ever cashes in the lottery ticket";
+                label1.Text += "\n\n No one ever cashes in the lottery ticket.";
+                //play again or restart
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
             }
             if (answer == 2)
             {
@@ -558,15 +623,17 @@ namespace WindowsFormsApplication1
                 //50% chance of being pulled over
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += " A cop drives up behind you and pulls you over.";
+                label1.Text += " \n A cop drives up behind you and pulls you over.";
+            }
+            else
+            {
             }
         
         }
         //third decision button
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(button3);
-            button3.Dispose();
+            button3.Hide();
             answerBox.Hide();
             label1.Location = new Point(38, 37);
 
@@ -584,7 +651,7 @@ namespace WindowsFormsApplication1
                 label1.Text = "You grab your bike from the garage and begin \n to ride it to the corner store.";
                 Refresh();
                 Thread.Sleep(4000);
-                label1.Text = " As you ride your bike, you come across a sad \n looking homeless man with a child laying down \n on the street.";
+                label1.Text = " As you ride your bike, you come across a sad \n looking homeless man with a dog laying down \n on the street.";
                 Refresh();
                 Thread.Sleep(4500);
                 label1.Text += "\n\n Do you...\n\n 1.Stop to speak to him. \n\n 2.Keep riding your bike and ignore him.";
@@ -592,6 +659,7 @@ namespace WindowsFormsApplication1
                 button4.BackColor = Color.Gainsboro;
                 button4.Size = new Size(75, 23);
                 button4.Click += new EventHandler(button4_Click);
+                button4.Text = "ENTER";
                 this.Controls.Add(button4);
                 answerBox.Clear();
                 answerBox.Show();
@@ -610,16 +678,17 @@ namespace WindowsFormsApplication1
                 button5.BackColor = Color.Gainsboro;
                 button5.Size = new Size(75, 23);
                 button5.Click += new EventHandler(button5_Click);
+                button5.Text = "ENTER";
                 this.Controls.Add(button5);
                 answerBox.Clear();
                 answerBox.Show();
             }
+            else { }
         }
-
+        //fourth decision
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(button4);
-            button4.Dispose();
+            button4.Hide();
             answerBox.Hide();
 
             try
@@ -637,6 +706,47 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "The man tells you his sad, unfortunate situation.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text = "    Knowing you just won the lottery, you decide    \n to help him out.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text += "You ask the man to go with you to the corner store";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text += "...Moments later you both arrive at the store";
+                Refresh();
+                Thread.Sleep(2500);
+                label1.Text = "   As you both walk in to the store, a camera crew meets you  .";
+                Thread.Sleep(3000);
+                label1.Text += "A man hands you a huge check with the amount of $3.4 million.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text = "You tell them you are going to give the homeless man \n a portion of your money.";
+                Refresh();
+                label1.Text += "Everyone is amazed by your generosity.";
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text = "Days later...\n The homeless man cleans up his life and you \n spend the rest of your life travelling and having fun.";
+                Thread.Sleep(5000);
+                //play again or restart
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
             }
             if (answer==2)
             {
@@ -650,13 +760,50 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text = "A man hands you a huge check with the amount of $3.4 million.";
+                Refresh();
+                Thread.Sleep(3500);
+                label1.Text = "As you walk home to enjoy the rest of your life as \n a rich man, you come across the homeless \n man again.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text += "\n         The homeless man's dog attacks you.         ";
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\n You try to defend yourself but you are unsuccesful.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text = "The violent dog, viciously bites your neck.";
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\nYou begin to bleed out and before you know it...";
+                Refresh();
+                Thread.Sleep(2500);
+                label1.Text += "\n You are dead";
+                //play again or restart
+                Refresh();
+                Thread.Sleep(2000);
+                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
 
             }
         }
+        //fifth decision
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(button5);
-            button5.Dispose();
+
+            button5.Hide();
             answerBox.Hide();
 
             try
@@ -676,7 +823,7 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n\n You are out of breath but you arrive \n safely to the store.";
                 Refresh();
                 Thread.Sleep(4000);
-                label1.Text ="As you walk in to the store, a camera \n crew is eagerly waiting for you.";
+                label1.Text = "As you walk in to the store, a camera \n crew is eagerly waiting for you.";
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n A man holding your huge check asks \n you to see your winning ticket.";
@@ -702,15 +849,83 @@ namespace WindowsFormsApplication1
                 label1.Text = "The man pulls a knife out of his pocket...";
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += "He tells you to give him all your money";
+                label1.Text += "\n He tells you to give him all your money.";
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += "You hand him your entire wallet sadly \n realizing your ticket is in there.";
+                label1.Text += "\n\n What do you do?";
+                label1.Text += "\n\n 1.Do exactly as the man says.";
+                label1.Text += "\n\n 2.Try to take the knife from the man.";
+                label1.Text += "\n\n 3.Run away.";
+                answerBox.Clear();
+                answerBox.Show();
+                button8.Location = new Point(195, 400);
+                button8.BackColor = Color.Gainsboro;
+                button8.Size = new Size(75, 23);
+                button8.Click += new EventHandler(button8_Click);
+                button8.Text = "ENTER";
+                this.Controls.Add(button8);
+                //play again or restart
+                Refresh();
+                Thread.Sleep(1000);
+                label1.Text += "\n\n\n\n\n\n                    Play Again?                   ";
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
             }
+            else
+            { }
+
 
         }
-     
-        
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            button8.Hide();
+            answerBox.Hide();
+
+            try
+            {
+                answer = Convert.ToInt16(answerBox.Text);
+            }
+            catch
+            {
+
+            }
+            if (answer == 1)
+            {
+                label1.Text = "\n You hand him your entire wallet sadly \n realizing your ticket is in there.";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text = "The man leaves you unharmed but you no \n longer have your winning ticket.";
+                Refresh();
+                Thread.Sleep(4000);
+                label1.Text += "\n YOU LOSE!";
+            }
+            if (answer == 2)
+            {
+                label1.Text = "      You successfully pull the knife away from the man     ";
+                Refresh();
+                Thread.Sleep(3000);
+                label1.Text += "You point the knife at the man and threaten to kill him.";
+                Refresh();
+                Thread.Sleep(4000);
+                label1.Text += "The man backs down and runs away.";
+                Refresh();
+                Thread.Sleep(2000);
+            }
+        }
+
         //Play Again button
         private void button6_Click(object sender, EventArgs e)
         {
@@ -726,7 +941,9 @@ namespace WindowsFormsApplication1
             ticket3.Location = new Point(143, 234);
             ticket2.Location = new Point(244, 10);
             ticket1.Location = new Point(61, 12);
-            ticket1.Size = new Size(177, 218); 
+            ticket1.Size = new Size(177, 218);
+            ticket2.Size = new Size(177, 218);
+            ticket3.Size = new Size(177, 218);
             ticket3.Hide();
             ticket2.Hide();
             ticket1.Hide();
