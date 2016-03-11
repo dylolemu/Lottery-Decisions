@@ -119,6 +119,7 @@
             this.answerBox.Name = "answerBox";
             this.answerBox.Size = new System.Drawing.Size(70, 20);
             this.answerBox.TabIndex = 8;
+            this.answerBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 

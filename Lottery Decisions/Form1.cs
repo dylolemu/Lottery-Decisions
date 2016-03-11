@@ -25,30 +25,38 @@ namespace WindowsFormsApplication1
         Button button6 = new Button();
         Button button7 = new Button();
         Button button8 = new Button();
+        Button button9 = new Button();
 
+        bool restarted = false;
+        bool canClick = false;
         //form loads up
         private void Form1_Load(object sender, EventArgs e)
         {
-            answerBox.Hide();
-            label1.Text = "Choose a Ticket";
-            ticket3.Hide();
-            ticket2.Hide();
-            ticket1.Hide();
+                answerBox.Hide();
+                label1.Text = "Choose a Ticket";
+                ticket3.Hide();
+                ticket2.Hide();
+                ticket1.Hide();
+            canClick = true;
+            
         }
-        bool restarted = false;
+        
         //click screen to start
         private void Form1_Click(object sender, EventArgs e)
         {
-            ticket3.Show();
-            ticket2.Show();
-            ticket1.Show();
-            label1.Text = "";
+            if (canClick == true)
+            {
+                ticket3.Show();
+                ticket2.Show();
+                ticket1.Show();
+                label1.Text = "";
+            }
         }
 
         //Win Ticket
         private void v_Click(object sender, EventArgs e)
         {
-
+            canClick = false;
             label1.Location = new Point(70, 37);
             label1.Text = "";
             ticket2.Hide();
@@ -138,7 +146,9 @@ namespace WindowsFormsApplication1
             Thread.Sleep(3000);
             ticket1.Hide();
             label2.Text = "";
-            label1.Text = "YOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
+            label1.Font = new Font("Microsoft Sans Serif",20,FontStyle.Bold);
+            label1.Location = new Point(35, 37);
+            label1.Text = "\n\n\n\nYOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
 
             Refresh();
             label1.ForeColor = Color.White;
@@ -174,6 +184,7 @@ namespace WindowsFormsApplication1
             Thread.Sleep(500);
 
             label1.Location = new Point(38, 37);
+            label1.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
 
             label1.Text = "What do you do next?";
             label1.Text += "\n \n 1.You yell out to your friend in the next room \n and tell him the great news.";
@@ -206,6 +217,7 @@ namespace WindowsFormsApplication1
         //Win Ticket
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            canClick = false;
             label1.Text = "";
             ticket1.Hide();
             ticket3.Hide();
@@ -294,17 +306,14 @@ namespace WindowsFormsApplication1
             Refresh();
             Thread.Sleep(3000);
             ticket2.Hide();
-            label2.Text = "";
-            label1.Text = "YOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
+            label2.Hide();
+            label1.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+            label1.Location = new Point(35, 37);
+            label1.Text = "\n\n\n\nYOU HAVE A $3.2 MILLION \n WINNING LOTTERY TICKET!!!";
 
             Refresh();
-            Thread.Sleep(500);
-            label1.ForeColor = Color.Black;
-            this.BackColor = Color.White;
-
-            Refresh();
-            Thread.Sleep(500);
             label1.ForeColor = Color.White;
+            Thread.Sleep(500);
             this.BackColor = Color.Maroon;
 
             Refresh();
@@ -324,9 +333,19 @@ namespace WindowsFormsApplication1
 
             Refresh();
             Thread.Sleep(500);
+            label1.ForeColor = Color.White;
+            this.BackColor = Color.Maroon;
 
+            Refresh();
+            Thread.Sleep(500);
+            label1.ForeColor = Color.Black;
+            this.BackColor = Color.White;
+
+            Refresh();
+            Thread.Sleep(500);
 
             label1.Location = new Point(38, 37);
+            label1.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
 
             label1.Text = "What do you do next?";
             label1.Text += "\n \n 1.You yell out to your friend in the next room \n and tell him the great news.";
@@ -357,6 +376,7 @@ namespace WindowsFormsApplication1
         //Lose Ticket
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            canClick = false;
             label1.Text = "";
             ticket2.Hide();
             ticket1.Hide();
@@ -504,10 +524,9 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n The traffic seems endless and you become very frustrated";
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += "\n \n Do you...";
-                label1.Text += "\n 1. take a shortcut?";
-                label1.Text += "\n \n            or           ";
-                label1.Text += "\n \n 2. stay in traffic and wait it out?";
+                label1.Text += "\n \n What do you do?.";
+                label1.Text += "\n \n 1. Take a shortcut?";
+                label1.Text += "\n \n 2. Stay in traffic and wait it out?";
 
                 answerBox.Clear();
                 answerBox.Show();
@@ -555,6 +574,11 @@ namespace WindowsFormsApplication1
                 this.Controls.Add(button3);
 
             }
+            else
+            {
+                button1.Show();
+                answerBox.Show();
+            }
         }
 
         //second decision button
@@ -562,7 +586,6 @@ namespace WindowsFormsApplication1
         {
             button2.Hide();
             answerBox.Hide();
-            label1.Location = new Point(38, 37);
 
             try
             {
@@ -575,20 +598,20 @@ namespace WindowsFormsApplication1
             }
             if (answer == 1)
             {
-                label1.Text = "You take a shortcut by turning right into a tiny street.";
+                label1.Text = "     You take a shortcut by turning right into a tiny street.     ";
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n \n  Your shortcut pays off and before you know it \n your just around the corner from the store.";
                 Refresh();
                 Thread.Sleep(3000);
-                label1.Text = "\n\n As you are turning around the corner you get \n violently hit by a car.";
+                label1.Text = "\n\n      As you are turning around the corner you get      \n violently hit by a car.";
                 Refresh();
                 Thread.Sleep(4000);
                 label1.Text += "\n\n You go into a comma.";
                 Refresh();
                 Thread.Sleep(1000);
                 label1.Text += "\n\n No one ever cashes in the lottery ticket.";
-                //play again or restart
+                //Play again or restart
                 Refresh();
                 Thread.Sleep(2000);
                 label1.Text += "\n\n\n\n\n\n               Play Again?              ";
@@ -609,24 +632,73 @@ namespace WindowsFormsApplication1
             }
             if (answer == 2)
             {
-                label1.Text = "You decide to wait out the traffic";
+                int chanceValue;
+                Random randNum = new Random();                chanceValue = randNum.Next(1, 11);
+                label1.Text = "              You decide to wait out the traffic              ";
                 Refresh();
                 Thread.Sleep(1000);
                 label1.Text += "\n\n After half an hour the traffic finally ends.";
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += "\n\n The traffic made you frustrated so you begin to speed.";
+                label1.Text = "\n\n The traffic made you frustrated so you begin to speed.";
 
                 Refresh();
                 Thread.Sleep(2500);
-                label1.Text = "As you speed past cars, you hear a siren.";
-                //50% chance of being pulled over
+                label1.Text += "\n\n\n\n\n\n     As you speed past cars, you hear a siren.     ";
+                //picture of siren
                 Refresh();
                 Thread.Sleep(2000);
-                label1.Text += " \n A cop drives up behind you and pulls you over.";
+                //50% chance of being pulled over
+                if (chanceValue >= 5)
+                {
+                    label1.Text = " \n         A cop drives up behind you and pulls you over.        ";
+                    Refresh();
+                    Thread.Sleep(2000);
+                    label1.Text += "\n \n The cop tells you, you were driving 50 km above \n  the speed limit.";
+                    Refresh();
+                    Thread.Sleep(4000);
+                    label1.Text += "\n He begins to write you a ticket.";
+                    Refresh();
+                    Thread.Sleep(2000);
+                    label1.Text = "\n        Before he finishes writing it, you consider bribing him.";
+                    Refresh();
+                    Thread.Sleep(3000);
+                    label1.Text += "\n Do you go through with it?";
+                    label1.Text += "\n\n 1.Yes";
+                    label1.Text += "\n\n 2.No";
+
+                    answerBox.Clear();
+                    answerBox.Show();
+
+                    if (restarted == false)
+                    {
+                        button9.Location = new Point(195, 400);
+                        button9.BackColor = Color.Gainsboro;
+                        button9.Size = new Size(75, 23);
+                        button9.Click += new EventHandler(button9_Click);
+                        button9.Text = "ENTER";
+                        this.Controls.Add(button9);
+                    }
+                    else
+                    {
+                        answerBox.Clear();
+                        button2.Show();
+                    }
+
+                }
+                if (chanceValue < 5)
+                {
+                    label1.Text += " \n A cop drives past you in a hurry and \n luckily ignores the fact you were speeding.";
+                    Refresh();
+                    Thread.Sleep(5000);
+                    label1.Text = "You continue driving to the corner store.";
+                }
+                
             }
             else
             {
+                button2.Show();
+                answerBox.Show();
             }
         
         }
@@ -672,7 +744,7 @@ namespace WindowsFormsApplication1
                 label1.Text = "As you walk through a small, dark alley, \n a mysterious looking man with a hoodie approaches you.";
                 Refresh();
                 Thread.Sleep(4000);
-                label1.Text += "\n\n What do you do? \n \n  1.You instantly begin to run at full \n speed away from the man.";
+                label1.Text += "\n\n            What do you do?           \n \n  1.You instantly begin to run at full \n speed away from the man.";
                 label1.Text += "\n \n 2.You ignore the man and continue walking \n at your normal speed.";
                 button5.Location = new Point(195, 400);
                 button5.BackColor = Color.Gainsboro;
@@ -884,11 +956,14 @@ namespace WindowsFormsApplication1
                 this.Controls.Add(button7);
             }
             else
-            { }
+            {
+                button5.Show();
+                answerBox.Show();
+            }
 
 
         }
-
+        //sixth decision
         private void button8_Click(object sender, EventArgs e)
         {
             button8.Hide();
@@ -924,12 +999,37 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(2000);
             }
+            else
+            {
+                button8.Show();
+                answerBox.Show();
+            }
+        }
+        //7th decision
+        private void button9_Click(object sender, EventArgs e)
+        {
+            button9.Hide();
+            answerBox.Hide();
+
+            try
+            {
+                answer = Convert.ToInt16(answerBox.Text);
+
+            }
+            catch
+            {
+
+            }
+            if (answer == 1)
+            {
+                label1.Text = "You decide to bribe the officer.";
+            }
         }
 
         //Play Again button
         private void button6_Click(object sender, EventArgs e)
         {
-
+            canClick = true;
             this.Controls.Remove(button6);
             button6.Dispose();
             this.Controls.Remove(button7);
