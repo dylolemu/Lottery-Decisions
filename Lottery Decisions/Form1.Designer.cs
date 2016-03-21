@@ -36,10 +36,12 @@
             this.tv = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.answerBox = new System.Windows.Forms.TextBox();
+            this.television = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ticket3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.television)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,6 +123,16 @@
             this.answerBox.TabIndex = 8;
             this.answerBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // television
+            // 
+            this.television.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("television.BackgroundImage")));
+            this.television.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.television.Location = new System.Drawing.Point(441, 256);
+            this.television.Name = "television";
+            this.television.Size = new System.Drawing.Size(37, 50);
+            this.television.TabIndex = 9;
+            this.television.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +146,7 @@
             this.Controls.Add(this.ticket1);
             this.Controls.Add(this.ticket3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.television);
             this.Name = "Form1";
             this.Text = "Lottery Decision Game";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -142,6 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.television)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +170,7 @@
         private System.Windows.Forms.PictureBox tv;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox answerBox;
+        private System.Windows.Forms.PictureBox television;
     }
 }
 
