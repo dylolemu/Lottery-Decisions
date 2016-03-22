@@ -37,11 +37,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.answerBox = new System.Windows.Forms.TextBox();
             this.television = new System.Windows.Forms.PictureBox();
+            this.blood = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ticket3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.television)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blood)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,12 +135,23 @@
             this.television.TabIndex = 9;
             this.television.TabStop = false;
             // 
+            // blood
+            // 
+            this.blood.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("blood.BackgroundImage")));
+            this.blood.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.blood.Location = new System.Drawing.Point(12, 200);
+            this.blood.Name = "blood";
+            this.blood.Size = new System.Drawing.Size(466, 252);
+            this.blood.TabIndex = 10;
+            this.blood.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(484, 464);
+            this.ClientSize = new System.Drawing.Size(481, 464);
+            this.Controls.Add(this.blood);
             this.Controls.Add(this.answerBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tv);
@@ -156,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.television)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +185,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox answerBox;
         private System.Windows.Forms.PictureBox television;
+        private System.Windows.Forms.PictureBox blood;
     }
 }
 

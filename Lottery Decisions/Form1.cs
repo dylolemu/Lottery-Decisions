@@ -26,7 +26,12 @@ namespace WindowsFormsApplication1
         Button button7 = new Button();
         Button button8 = new Button();
         Button button9 = new Button();
-
+        bool scene1 = false;
+        bool scene2 = false;
+        bool scene3 = false;
+        bool scene4 = false;
+        bool scene5 = false;
+        bool scene = false;
         bool restarted = false;
         bool canClick = false;
         //form loads up
@@ -34,6 +39,7 @@ namespace WindowsFormsApplication1
         {
             answerBox.Hide();
             television.Hide();
+            blood.Hide();
             label1.Text = "Choose a Ticket";
             ticket3.Hide();
             ticket2.Hide();
@@ -188,7 +194,7 @@ namespace WindowsFormsApplication1
             
                 
             answerBox.Show();
-            if (restarted == false)
+            if (restarted == false || scene == false)
             {
                 button1.Location = new Point(195, 400);
                 button1.BackColor = Color.Gainsboro;
@@ -196,10 +202,12 @@ namespace WindowsFormsApplication1
                 button1.Click += new EventHandler(button1_Click);
                 button1.Text = "ENTER";
                 this.Controls.Add(button1);
+                scene = true;
             }
-            else
+            else if (scene == true)
             {
                 answerBox.Clear();
+                answerBox.Show();
                 button1.Show();
             }
 
@@ -253,19 +261,14 @@ namespace WindowsFormsApplication1
             label1.Text += " watch.";
             Refresh();
             Thread.Sleep(400);
-            tv.Size = new Size(300, 390);
-            tv.Location = new Point(75, 90);
-            tv.BackgroundImage = new Bitmap(@"C:\Users\student\Desktop\Dylon\Lottery Decisions\Lottery Decisions\Resources\tv.png");
-            tv.BackgroundImageLayout = ImageLayout.Zoom;
-
+            ticket2.Hide();
+            television.Size = new Size(300, 390);
+            television.Location = new Point(79, 90);
+            television.Show();
             label1.Text = "";
-
             Refresh();
             Thread.Sleep(500);
-
-
             label1.Text = "The winning lottery ticket is...";
-            ticket2.Hide();
             Refresh();
             Thread.Sleep(500);
             label2.Location = new Point(133, 317);
@@ -274,7 +277,7 @@ namespace WindowsFormsApplication1
             Refresh();
             Thread.Sleep(1200);
             label2.Location = new Point(133, 308);
-            tv.Hide();
+            television.Hide();
 
             Refresh();
             Thread.Sleep(50);
@@ -361,6 +364,7 @@ namespace WindowsFormsApplication1
             else
             {
                 answerBox.Clear();
+                answerBox.Show();
                 button1.Show();
             }
 
@@ -426,7 +430,7 @@ namespace WindowsFormsApplication1
             Refresh();
             Thread.Sleep(2000);
 
-            label1.Text = "\n\n\n\n        YOU LOSE!        ";
+            label1.Text = "\n\n\n\n                YOU LOSE!        ";
 
             Refresh();
             Thread.Sleep(1000);
@@ -435,20 +439,28 @@ namespace WindowsFormsApplication1
             Refresh();
             Thread.Sleep(2000);
             label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-            //Play Again button
-            button6.Location = new Point(155, 400);
-            button6.BackColor = Color.Gainsboro;
-            button6.Size = new Size(75, 23);
-            button6.Text = "YES";
-            button6.Click += new EventHandler(button6_Click);
-            this.Controls.Add(button6);
-            //Close form 
-            button7.Location = new Point(255, 400);
-            button7.BackColor = Color.Gainsboro;
-            button7.Size = new Size(75, 23);
-            button7.Text = "NO";
-            button7.Click += new EventHandler(button7_Click);
-            this.Controls.Add(button7);
+            if (restarted == false)
+            {
+                //Play Again button
+                button6.Location = new Point(155, 400);
+                button6.BackColor = Color.Gainsboro;
+                button6.Size = new Size(75, 23);
+                button6.Text = "YES";
+                button6.Click += new EventHandler(button6_Click);
+                this.Controls.Add(button6);
+                //Close form 
+                button7.Location = new Point(255, 400);
+                button7.BackColor = Color.Gainsboro;
+                button7.Size = new Size(75, 23);
+                button7.Text = "NO";
+                button7.Click += new EventHandler(button7_Click);
+                this.Controls.Add(button7);
+            }
+            else
+            {
+                button6.Show();
+                button7.Show();
+            }
         }
 
         
@@ -483,31 +495,42 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(1500);
                 label1.Text = "As you stare at your lottery ticket in excitement \n he stabs you with a knife and steals your lottery ticket.";
+                blood.Show();
+                blood.Location = new Point(12, 200);
+                blood.Size = new Size(466, 252);
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n\n\n\n You are dead";
                 //play again or restart
                 Refresh();
                 Thread.Sleep(2000);
+                blood.Hide();
                 label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form button
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button7.Show();
+                }
             }
             else if (answer == 2)
             {
-
                 label1.Text = "You immediately drive down to the corner store where \n you bought the lottery ticket to get your money.";
                 Refresh();
                 Thread.Sleep(3000);
@@ -525,7 +548,7 @@ namespace WindowsFormsApplication1
                 answerBox.Clear();
                 answerBox.Show();
 
-                if (restarted == false)
+                if (restarted == false || scene1 == false)
                 {
                     button2.Location = new Point(195, 400);
                     button2.BackColor = Color.Gainsboro;
@@ -533,15 +556,16 @@ namespace WindowsFormsApplication1
                     button2.Click += new EventHandler(button2_Click);
                     button2.Text = "ENTER";
                     this.Controls.Add(button2);
+                    scene1 = true;
                 }
-                else
+                else if (scene1 == true)
                 {
                     answerBox.Location = new Point(197, 371);
                     button2.Location = new Point(195, 400);
                     answerBox.Clear();
                     button2.Show();
                 }
-                
+
             }
             else if (answer == 3)
             {
@@ -560,15 +584,21 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n 2. Walk?";
                 answerBox.Clear();
                 answerBox.Show();
-                
 
-                button3.Location = new Point(195, 400);
-                button3.BackColor = Color.Gainsboro;
-                button3.Size = new Size(75, 23);
-                button3.Click += new EventHandler(button3_Click);
-                button3.Text = "ENTER";
-                this.Controls.Add(button3);
-
+                if (restarted == false || scene2 == false)
+                {
+                    button3.Location = new Point(195, 400);
+                    button3.BackColor = Color.Gainsboro;
+                    button3.Size = new Size(75, 23);
+                    button3.Click += new EventHandler(button3_Click);
+                    button3.Text = "ENTER";
+                    this.Controls.Add(button3);
+                    scene2 = true;
+                }
+                else if (scene2 == true)
+                {
+                    button3.Show();
+                }
             }
             else
             {
@@ -613,20 +643,30 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form button
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button6.Location = new Point(155, 400);
+                    button7.Show();
+                    button7.Location = new Point(255, 400);
+                }
             }
             if (answer == 2)
             {
@@ -670,7 +710,7 @@ namespace WindowsFormsApplication1
                     answerBox.Clear();
                     answerBox.Show();
 
-                    if (restarted == false)
+                    if (restarted == false ||scene3== false)
                     {
                         button9.Location = new Point(195, 400);
                         button9.BackColor = Color.Gainsboro;
@@ -678,8 +718,9 @@ namespace WindowsFormsApplication1
                         button9.Click += new EventHandler(button9_Click);
                         button9.Text = "ENTER";
                         this.Controls.Add(button9);
+                        scene3 = true;
                     }
-                    else
+                    else if (scene3 == true)
                     {
                         answerBox.Clear();
                         button2.Show();
@@ -707,29 +748,35 @@ namespace WindowsFormsApplication1
                     Refresh();
                     Thread.Sleep(3000);
                     label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                    //Play Again button
-                    button6.Location = new Point(155, 400);
-                    button6.BackColor = Color.Gainsboro;
-                    button6.Size = new Size(75, 23);
-                    button6.Text = "YES";
-                    button6.Click += new EventHandler(button6_Click);
-                    this.Controls.Add(button6);
-                    //Close form button
-                    button7.Location = new Point(255, 400);
-                    button7.BackColor = Color.Gainsboro;
-                    button7.Size = new Size(75, 23);
-                    button7.Text = "NO";
-                    button7.Click += new EventHandler(button7_Click);
-                    this.Controls.Add(button7);
+                    if (restarted == false)
+                    {
+                        //Play Again button
+                        button6.Location = new Point(155, 400);
+                        button6.BackColor = Color.Gainsboro;
+                        button6.Size = new Size(75, 23);
+                        button6.Text = "YES";
+                        button6.Click += new EventHandler(button6_Click);
+                        this.Controls.Add(button6);
+                        //Close form 
+                        button7.Location = new Point(255, 400);
+                        button7.BackColor = Color.Gainsboro;
+                        button7.Size = new Size(75, 23);
+                        button7.Text = "NO";
+                        button7.Click += new EventHandler(button7_Click);
+                        this.Controls.Add(button7);
+                    }
+                    else
+                    {
+                        button6.Show();
+                        button7.Show();
+                    }
                 }
-                
+                else
+                {
+                    button2.Show();
+                    answerBox.Show();
+                }
             }
-            else
-            {
-                button2.Show();
-                answerBox.Show();
-            }
-        
         }
         //third decision button
         private void button3_Click(object sender, EventArgs e)
@@ -775,14 +822,23 @@ namespace WindowsFormsApplication1
                 Thread.Sleep(4000);
                 label1.Text += "\n\n            What do you do?           \n \n  1.You instantly begin to run at full \n speed away from the man.";
                 label1.Text += "\n \n 2.You ignore the man and continue walking \n at your normal speed.";
-                button5.Location = new Point(195, 400);
-                button5.BackColor = Color.Gainsboro;
-                button5.Size = new Size(75, 23);
-                button5.Click += new EventHandler(button5_Click);
-                button5.Text = "ENTER";
-                this.Controls.Add(button5);
-                answerBox.Clear();
-                answerBox.Show();
+                if (restarted == false || scene4 == false)
+                {
+                    button5.Location = new Point(195, 400);
+                    button5.BackColor = Color.Gainsboro;
+                    button5.Size = new Size(75, 23);
+                    button5.Click += new EventHandler(button5_Click);
+                    button5.Text = "ENTER";
+                    this.Controls.Add(button5);
+                    answerBox.Clear();
+                    answerBox.Show();
+                    scene4 = true;
+                }
+                else if (scene4 == true)
+                {
+                    button5.Show();
+                    answerBox.Show();
+                }
             }
             else { }
         }
@@ -801,7 +857,7 @@ namespace WindowsFormsApplication1
             {
 
             }
-            if (answer == 1) 
+            if (answer == 1)
             {
                 label1.Text = "Feeling sorry for the homeless man, you stop to speak to him.";
                 Refresh();
@@ -834,22 +890,31 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(2000);
                 label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form 
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button7.Show();
+                }
             }
-            if (answer==2)
+
+            if (answer == 2)
             {
                 label1.Text = "You completely ignore the sad looking man and \n you continue your way to the store.";
                 Refresh();
@@ -879,26 +944,30 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(2500);
                 label1.Text += "\n You are dead";
-                //play again or restart
-                Refresh();
-                Thread.Sleep(2000);
-                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form 
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
-
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button7.Show();
+                }
             }
+
         }
         //fifth decision
         private void button5_Click(object sender, EventArgs e)
@@ -958,12 +1027,21 @@ namespace WindowsFormsApplication1
                 label1.Text += "\n\n 2.Try to take the knife from the man.";
                 answerBox.Clear();
                 answerBox.Show();
-                button8.Location = new Point(195, 400);
-                button8.BackColor = Color.Gainsboro;
-                button8.Size = new Size(75, 23);
-                button8.Click += new EventHandler(button8_Click);
-                button8.Text = "ENTER";
-                this.Controls.Add(button8);
+                if (restarted == false || scene5 == false)
+                {
+                    button8.Location = new Point(195, 400);
+                    button8.BackColor = Color.Gainsboro;
+                    button8.Size = new Size(75, 23);
+                    button8.Click += new EventHandler(button8_Click);
+                    button8.Text = "ENTER";
+                    this.Controls.Add(button8);
+                    scene5 = true;
+                }
+                else if (scene5 == true)
+                {
+                    button8.Show();
+                    answerBox.Show();
+                }
             }
             else
             {
@@ -996,27 +1074,29 @@ namespace WindowsFormsApplication1
                 label1.Text = "    The man leaves you unharmed but you no \n longer have your winning ticket.";
                 Refresh();
                 Thread.Sleep(4000);
-                label1.Text += "\n YOU LOSE!";
-                //play again or restart
-                Refresh();
-                Thread.Sleep(3000);
-                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button8.Location = new Point (700,700);
-                answerBox.Location = new Point(700, 700);
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form button
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
+                label1.Text += "\n          YOU LOSE!";
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button7.Show();
+                }
             }
             if (answer == 2)
             {
@@ -1096,24 +1176,28 @@ namespace WindowsFormsApplication1
                 Refresh();
                 Thread.Sleep(3000);
                 label1.Text += "\n\n You never turn in your lottery ticket.";
-                //play again or restart
-                Refresh();
-                Thread.Sleep(2000);
-                label1.Text += "\n\n\n\n\n\n               Play Again?              ";
-                //Play Again button
-                button6.Location = new Point(155, 400);
-                button6.BackColor = Color.Gainsboro;
-                button6.Size = new Size(75, 23);
-                button6.Text = "YES";
-                button6.Click += new EventHandler(button6_Click);
-                this.Controls.Add(button6);
-                //Close form button
-                button7.Location = new Point(255, 400);
-                button7.BackColor = Color.Gainsboro;
-                button7.Size = new Size(75, 23);
-                button7.Text = "NO";
-                button7.Click += new EventHandler(button7_Click);
-                this.Controls.Add(button7);
+                if (restarted == false)
+                {
+                    //Play Again button
+                    button6.Location = new Point(155, 400);
+                    button6.BackColor = Color.Gainsboro;
+                    button6.Size = new Size(75, 23);
+                    button6.Text = "YES";
+                    button6.Click += new EventHandler(button6_Click);
+                    this.Controls.Add(button6);
+                    //Close form 
+                    button7.Location = new Point(255, 400);
+                    button7.BackColor = Color.Gainsboro;
+                    button7.Size = new Size(75, 23);
+                    button7.Text = "NO";
+                    button7.Click += new EventHandler(button7_Click);
+                    this.Controls.Add(button7);
+                }
+                else
+                {
+                    button6.Show();
+                    button7.Show();
+                }
             }
             if (answer == 2)
             {
@@ -1125,10 +1209,8 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             canClick = true;
-            this.Controls.Remove(button6);
-            button6.Dispose();
-            this.Controls.Remove(button7);
-            button7.Dispose();
+            button6.Hide();
+            button7.Hide();
 
             answerBox.Hide();
             label1.Location = new Point(163, 138);
