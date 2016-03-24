@@ -45,6 +45,14 @@
             this.bike = new System.Windows.Forms.PictureBox();
             this.knife = new System.Windows.Forms.PictureBox();
             this.hobo = new System.Windows.Forms.PictureBox();
+            this.wallet = new System.Windows.Forms.PictureBox();
+            this.walking = new System.Windows.Forms.PictureBox();
+            this.dog = new System.Windows.Forms.PictureBox();
+            this.camera = new System.Windows.Forms.PictureBox();
+            this.handcuffs = new System.Windows.Forms.PictureBox();
+            this.speeding = new System.Windows.Forms.PictureBox();
+            this.suit = new System.Windows.Forms.PictureBox();
+            this.pockets = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ticket3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).BeginInit();
@@ -58,6 +66,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.bike)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.knife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hobo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.walking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handcuffs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speeding)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pockets)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -214,9 +230,9 @@
             // 
             this.knife.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("knife.BackgroundImage")));
             this.knife.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.knife.Location = new System.Drawing.Point(136, 198);
+            this.knife.Location = new System.Drawing.Point(50, 198);
             this.knife.Name = "knife";
-            this.knife.Size = new System.Drawing.Size(184, 279);
+            this.knife.Size = new System.Drawing.Size(391, 259);
             this.knife.TabIndex = 17;
             this.knife.TabStop = false;
             // 
@@ -229,6 +245,86 @@
             this.hobo.Size = new System.Drawing.Size(330, 245);
             this.hobo.TabIndex = 18;
             this.hobo.TabStop = false;
+            // 
+            // wallet
+            // 
+            this.wallet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("wallet.BackgroundImage")));
+            this.wallet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.wallet.Location = new System.Drawing.Point(39, 179);
+            this.wallet.Name = "wallet";
+            this.wallet.Size = new System.Drawing.Size(386, 291);
+            this.wallet.TabIndex = 19;
+            this.wallet.TabStop = false;
+            // 
+            // walking
+            // 
+            this.walking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("walking.BackgroundImage")));
+            this.walking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.walking.Location = new System.Drawing.Point(127, 184);
+            this.walking.Name = "walking";
+            this.walking.Size = new System.Drawing.Size(193, 274);
+            this.walking.TabIndex = 20;
+            this.walking.TabStop = false;
+            // 
+            // dog
+            // 
+            this.dog.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dog.BackgroundImage")));
+            this.dog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dog.Location = new System.Drawing.Point(79, 184);
+            this.dog.Name = "dog";
+            this.dog.Size = new System.Drawing.Size(304, 273);
+            this.dog.TabIndex = 21;
+            this.dog.TabStop = false;
+            // 
+            // camera
+            // 
+            this.camera.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("camera.BackgroundImage")));
+            this.camera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.camera.Location = new System.Drawing.Point(39, 174);
+            this.camera.Name = "camera";
+            this.camera.Size = new System.Drawing.Size(432, 278);
+            this.camera.TabIndex = 22;
+            this.camera.TabStop = false;
+            // 
+            // handcuffs
+            // 
+            this.handcuffs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("handcuffs.BackgroundImage")));
+            this.handcuffs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.handcuffs.Location = new System.Drawing.Point(39, 194);
+            this.handcuffs.Name = "handcuffs";
+            this.handcuffs.Size = new System.Drawing.Size(390, 225);
+            this.handcuffs.TabIndex = 23;
+            this.handcuffs.TabStop = false;
+            // 
+            // speeding
+            // 
+            this.speeding.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("speeding.BackgroundImage")));
+            this.speeding.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.speeding.Location = new System.Drawing.Point(143, 207);
+            this.speeding.Name = "speeding";
+            this.speeding.Size = new System.Drawing.Size(182, 243);
+            this.speeding.TabIndex = 24;
+            this.speeding.TabStop = false;
+            // 
+            // suit
+            // 
+            this.suit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("suit.BackgroundImage")));
+            this.suit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.suit.Location = new System.Drawing.Point(166, 207);
+            this.suit.Name = "suit";
+            this.suit.Size = new System.Drawing.Size(93, 250);
+            this.suit.TabIndex = 25;
+            this.suit.TabStop = false;
+            // 
+            // pockets
+            // 
+            this.pockets.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pockets.BackgroundImage")));
+            this.pockets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pockets.Location = new System.Drawing.Point(91, 219);
+            this.pockets.Name = "pockets";
+            this.pockets.Size = new System.Drawing.Size(264, 245);
+            this.pockets.TabIndex = 26;
+            this.pockets.TabStop = false;
             // 
             // lottery
             // 
@@ -244,14 +340,23 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.television);
             this.Controls.Add(this.blood);
+            this.Controls.Add(this.traffic);
             this.Controls.Add(this.siren);
             this.Controls.Add(this.windshield);
-            this.Controls.Add(this.traffic);
-            this.Controls.Add(this.steering);
             this.Controls.Add(this.phone);
+            this.Controls.Add(this.steering);
             this.Controls.Add(this.bike);
-            this.Controls.Add(this.knife);
             this.Controls.Add(this.hobo);
+            this.Controls.Add(this.knife);
+            this.Controls.Add(this.wallet);
+            this.Controls.Add(this.walking);
+            this.Controls.Add(this.dog);
+            this.Controls.Add(this.camera);
+            this.Controls.Add(this.handcuffs);
+            this.Controls.Add(this.speeding);
+            this.Controls.Add(this.suit);
+            this.Controls.Add(this.pockets);
+            this.MaximizeBox = false;
             this.Name = "lottery";
             this.Text = "Lottery Decision Game";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -269,6 +374,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.bike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.knife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hobo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wallet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.walking)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.handcuffs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speeding)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pockets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,6 +405,14 @@
         private System.Windows.Forms.PictureBox bike;
         private System.Windows.Forms.PictureBox knife;
         private System.Windows.Forms.PictureBox hobo;
+        private System.Windows.Forms.PictureBox wallet;
+        private System.Windows.Forms.PictureBox walking;
+        private System.Windows.Forms.PictureBox dog;
+        private System.Windows.Forms.PictureBox camera;
+        private System.Windows.Forms.PictureBox handcuffs;
+        private System.Windows.Forms.PictureBox speeding;
+        private System.Windows.Forms.PictureBox suit;
+        private System.Windows.Forms.PictureBox pockets;
     }
 }
 
