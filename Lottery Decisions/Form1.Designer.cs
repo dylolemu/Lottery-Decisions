@@ -37,7 +37,7 @@
             this.answerBox = new System.Windows.Forms.TextBox();
             this.television = new System.Windows.Forms.PictureBox();
             this.blood = new System.Windows.Forms.PictureBox();
-            this.traffic = new System.Windows.Forms.PictureBox();
+            this.trafficpic = new System.Windows.Forms.PictureBox();
             this.windshield = new System.Windows.Forms.PictureBox();
             this.siren = new System.Windows.Forms.PictureBox();
             this.steering = new System.Windows.Forms.PictureBox();
@@ -53,12 +53,15 @@
             this.speeding = new System.Windows.Forms.PictureBox();
             this.suit = new System.Windows.Forms.PictureBox();
             this.pockets = new System.Windows.Forms.PictureBox();
+            this.cover = new System.Windows.Forms.PictureBox();
+            this.hoodie = new System.Windows.Forms.PictureBox();
+            this.corner = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ticket3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.television)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blood)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traffic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trafficpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windshield)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.steering)).BeginInit();
@@ -74,6 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.speeding)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pockets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hoodie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.corner)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,9 +89,8 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(163, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 18);
+            this.label1.Size = new System.Drawing.Size(0, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Choose a Ticket";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ticket3
@@ -118,7 +123,7 @@
             // 
             this.ticket2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ticket2.BackgroundImage")));
             this.ticket2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ticket2.Location = new System.Drawing.Point(244, 10);
+            this.ticket2.Location = new System.Drawing.Point(252, 12);
             this.ticket2.Name = "ticket2";
             this.ticket2.Size = new System.Drawing.Size(177, 218);
             this.ticket2.TabIndex = 5;
@@ -166,15 +171,15 @@
             this.blood.TabIndex = 10;
             this.blood.TabStop = false;
             // 
-            // traffic
+            // trafficpic
             // 
-            this.traffic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("traffic.BackgroundImage")));
-            this.traffic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.traffic.Location = new System.Drawing.Point(431, 363);
-            this.traffic.Name = "traffic";
-            this.traffic.Size = new System.Drawing.Size(47, 56);
-            this.traffic.TabIndex = 11;
-            this.traffic.TabStop = false;
+            this.trafficpic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("trafficpic.BackgroundImage")));
+            this.trafficpic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.trafficpic.Location = new System.Drawing.Point(431, 363);
+            this.trafficpic.Name = "trafficpic";
+            this.trafficpic.Size = new System.Drawing.Size(47, 56);
+            this.trafficpic.TabIndex = 11;
+            this.trafficpic.TabStop = false;
             // 
             // windshield
             // 
@@ -326,6 +331,37 @@
             this.pockets.TabIndex = 26;
             this.pockets.TabStop = false;
             // 
+            // cover
+            // 
+            this.cover.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cover.BackgroundImage")));
+            this.cover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cover.Location = new System.Drawing.Point(-13, 0);
+            this.cover.Name = "cover";
+            this.cover.Size = new System.Drawing.Size(500, 500);
+            this.cover.TabIndex = 27;
+            this.cover.TabStop = false;
+            this.cover.Click += new System.EventHandler(this.cover_Click);
+            // 
+            // hoodie
+            // 
+            this.hoodie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hoodie.BackgroundImage")));
+            this.hoodie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.hoodie.Location = new System.Drawing.Point(166, 168);
+            this.hoodie.Name = "hoodie";
+            this.hoodie.Size = new System.Drawing.Size(354, 302);
+            this.hoodie.TabIndex = 28;
+            this.hoodie.TabStop = false;
+            // 
+            // corner
+            // 
+            this.corner.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("corner.BackgroundImage")));
+            this.corner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.corner.Location = new System.Drawing.Point(67, 150);
+            this.corner.Name = "corner";
+            this.corner.Size = new System.Drawing.Size(354, 302);
+            this.corner.TabIndex = 29;
+            this.corner.TabStop = false;
+            // 
             // lottery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,33 +376,36 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.television);
             this.Controls.Add(this.blood);
-            this.Controls.Add(this.traffic);
-            this.Controls.Add(this.siren);
+            this.Controls.Add(this.trafficpic);
             this.Controls.Add(this.windshield);
+            this.Controls.Add(this.walking);
+            this.Controls.Add(this.speeding);
+            this.Controls.Add(this.suit);
+            this.Controls.Add(this.pockets);
+            this.Controls.Add(this.hoodie);
+            this.Controls.Add(this.siren);
+            this.Controls.Add(this.cover);
             this.Controls.Add(this.phone);
             this.Controls.Add(this.steering);
             this.Controls.Add(this.bike);
             this.Controls.Add(this.hobo);
             this.Controls.Add(this.knife);
             this.Controls.Add(this.wallet);
-            this.Controls.Add(this.walking);
             this.Controls.Add(this.dog);
             this.Controls.Add(this.camera);
             this.Controls.Add(this.handcuffs);
-            this.Controls.Add(this.speeding);
-            this.Controls.Add(this.suit);
-            this.Controls.Add(this.pockets);
+            this.Controls.Add(this.corner);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "lottery";
             this.Text = "Lottery Decision Game";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ticket3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticket2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.television)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blood)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traffic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trafficpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windshield)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siren)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.steering)).EndInit();
@@ -382,6 +421,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.speeding)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pockets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hoodie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.corner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,7 +439,7 @@
         private System.Windows.Forms.TextBox answerBox;
         private System.Windows.Forms.PictureBox television;
         private System.Windows.Forms.PictureBox blood;
-        private System.Windows.Forms.PictureBox traffic;
+        private System.Windows.Forms.PictureBox trafficpic;
         private System.Windows.Forms.PictureBox windshield;
         private System.Windows.Forms.PictureBox siren;
         private System.Windows.Forms.PictureBox steering;
@@ -413,6 +455,9 @@
         private System.Windows.Forms.PictureBox speeding;
         private System.Windows.Forms.PictureBox suit;
         private System.Windows.Forms.PictureBox pockets;
+        private System.Windows.Forms.PictureBox cover;
+        private System.Windows.Forms.PictureBox hoodie;
+        private System.Windows.Forms.PictureBox corner;
     }
 }
 

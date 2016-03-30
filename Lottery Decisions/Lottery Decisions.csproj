@@ -121,6 +121,69 @@
   <ItemGroup>
     <None Include="Resources\jail.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bikeSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carCrash.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cheering.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dog.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\failTicket.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grunt.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jail.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knifed.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phoneCall.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scary.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\siren.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slowHeart.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stab.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traffic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walking.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\winning.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\winningTicket.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
